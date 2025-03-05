@@ -137,7 +137,7 @@ export default function McqQuestions() {
     }
   };
   return (
-    <div className="w-full max-w-3xl mx-auto  p-8 rounded-xl shadow-xl mt-16">
+    <div className="w-full max-w-3xl mx-auto  p-8 rounded-xl shadow-xl mt-16 bg-slate-950">
       <button
         className="absolute top-6 right-6 text-white hover:text-gray-200"
         onClick={() => setQuestions([])}
@@ -150,58 +150,46 @@ export default function McqQuestions() {
       </h1>
       <div className="space-y-5">
         <div className="flex flex-col">
-          <label htmlFor="topic" className="text-white text-lg font-medium">
-            Topic
-          </label>
           <input
             id="topic"
             type="text"
             value={topic}
             onChange={(e) => setTopic(e.target.value)}
-            className="p-4 mt-2 rounded-lg shadow-md border-none outline-none focus:ring-2 focus:ring-blue-400"
+            className="w-full p-3 rounded-lg shadow-md border outline-none focus:ring-2 focus:ring-blue-400 bg-slate-600 text-amber-50 font-bold"
             placeholder="Enter topic"
           />
         </div>
 
         <div className="flex flex-col">
-          <label
-            htmlFor="numQuestions"
-            className="text-white text-lg font-medium"
-          >
-            Number of Questions
-          </label>
           <input
             id="numQuestions"
             type="number"
             value={numQuestions}
             onChange={(e) => setNumQuestions(parseInt(e.target.value) || "")}
-            className="p-4 mt-2 rounded-lg shadow-md border-none outline-none focus:ring-2 focus:ring-blue-400"
+            className="p-4 mt-2 rounded-lg shadow-md border-none outline-none focus:ring-2 focus:ring-blue-400 bg-slate-600 text-amber-50 font-bold"
             placeholder="Enter number of questions"
             min="1"
           />
         </div>
 
         <div className="flex flex-col">
-          <label htmlFor="level" className="text-white text-lg font-medium">
-            Difficulty Level
-          </label>
           <select
             id="level"
             value={level}
             onChange={(e) => setLevel(e.target.value)}
-            className="p-4 mt-2 rounded-lg shadow-md border-none outline-none focus:ring-2 focus:ring-blue-400"
+            className="p-4 mt-2 rounded-lg shadow-md border-none outline-none focus:ring-2 focus:ring-blue-400 bg-slate-600 font-bold"
           >
             <option value="Default" disabled>
               Select Difficulty Level
             </option>
-            <option value="Easy">Easy</option>
-            <option value="Medium">Medium</option>
-            <option value="Hard">Hard</option>
+            <option value="Easy" className="font-bold">Easy</option>
+            <option value="Medium" className="font-bold">Medium</option>
+            <option value="Hard" className="font-bold">Hard</option>
           </select>
         </div>
       </div>
 
-      <div className="text-center mt-6">
+      <div className="text-center mt-10">
         <button
           onClick={generateQuestions}
           disabled={isLoading}
@@ -218,9 +206,9 @@ export default function McqQuestions() {
           {questions.map((question, idx) => (
             <div
               key={question.id}
-              className="p-4 bg-white shadow-md rounded-lg"
+              className="p-4 bg-slate-950 shadow-md rounded-lg"
             >
-              <h3 className="text-xl font-bold text-gray-800 mb-4">
+              <h3 className="flex flex-start font-extrabold mb-4">
                 {idx + 1}. {question.question}{" "}
                 {/* Make sure question is bold and has correct index */}
               </h3>
@@ -228,7 +216,7 @@ export default function McqQuestions() {
                 {Object.entries(question.options).map(([key, option]) => (
                   <label
                     key={key}
-                    className="flex items-center space-x-3 cursor-pointer bg-gray-100 p-2 rounded-md"
+                    className="flex items-center space-x-3 cursor-pointer bg-slate-900 p-2 rounded-md"
                   >
                     <input
                       type="radio"
@@ -237,7 +225,7 @@ export default function McqQuestions() {
                       onChange={() => handleAnswerChange(question.id, key)}
                       className="form-radio h-5 w-5 text-blue-600"
                     />
-                    <span className="text-gray-700">{option}</span>
+                    <span className="text-slate-300 font-serif">{option}</span>
                   </label>
                 ))}
               </div>
