@@ -103,7 +103,7 @@ export default function Chatbot() {
   };
 
   return (
-    <div>
+    <div >
       <button
         className="fixed bottom-4 right-4 p-3 rounded-full bg-blue-600 text-white shadow-lg hover:bg-blue-800 transition"
         onClick={toggleChat}
@@ -113,8 +113,8 @@ export default function Chatbot() {
       </button>
 
       {isChatOpen && (
-        <div className="fixed bottom-0 right-0 p-4 w-[900px] h-[900px] bg-white shadow-lg rounded-lg flex flex-col border-4 border-gray-500 transition-all">
-          <div className="bg-gradient-to-r from-slate-800 to-gray-700 text-white text-xl font-bold p-4 border-b-4 border-blue-400 flex justify-between items-center">
+        <div className="fixed bottom-0 right-0 p-4 w-[600px] h-[600px] shadow-lg rounded-2xl flex flex-col transition-all">
+          <div className="bg-gradient-to-r from-slate-800 to-gray-700 text-white text-xl font-bold p-4 flex justify-between items-center">
             <button className="text-white text-2xl p-2 hover:bg-gray-600 rounded-full" onClick={toggleChat}>
               <FaTimes />
             </button>
@@ -135,8 +135,8 @@ export default function Chatbot() {
             {isLoading && <div className="p-3 max-w-4xl rounded-lg bg-gray-600 text-white self-start mr-auto w-4/5">Please wait, generating data...</div>}
             <div ref={chatEndRef} />
           </div>
-          <div className="p-3 flex items-center bg-slate-600 border-4 border-blue-400">
-            <input type="text" className="flex-1 p-2 border rounded-lg outline-none focus:ring-2 focus:ring-blue-400 shadow-inner bg-slate-500" placeholder="Type here to ask something..." value={input} onChange={(e) => setInput(e.target.value)} onKeyPress={(e) => e.key === "Enter" && handleSendMessage()} disabled={isLoading} />
+          <div className="p-3 flex items-center bg-slate-600 ">
+            <input type="text" className="flex-1 p-2  rounded-lg outline-none focus:ring-2 focus:ring-blue-400 shadow-inner bg-slate-500" placeholder="Type here to ask something..." value={input} onChange={(e) => setInput(e.target.value)} onKeyPress={(e) => e.key === "Enter" && handleSendMessage()} disabled={isLoading} />
             <button className="ml-2 p-2 bg-slate-800 text-white rounded-lg hover:bg-blue-600 transition flex items-center" onClick={handleSendMessage} disabled={isLoading}>
               <Send size={20} />
             </button>

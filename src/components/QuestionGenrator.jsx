@@ -73,7 +73,7 @@ export default function QuestionGenerator() {
   return (
     <div className="w-full max-w-3xl mx-auto p-8 rounded-xl shadow-xl mt-16">
       <h1 className="text-3xl font-extrabold text-center mb-8">
-        Teacher Question Generator
+         Question Generator
       </h1>
 
       <div className="space-y-5">
@@ -82,22 +82,22 @@ export default function QuestionGenerator() {
           placeholder="Enter topic"
           value={topic}
           onChange={(e) => setTopic(e.target.value)}
-          className="w-full p-3 rounded-lg shadow-md border outline-none focus:ring-2 focus:ring-blue-400"
+          className="w-full p-3 rounded-lg shadow-md border outline-none focus:ring-2 focus:ring-blue-400 bg-slate-600 text-amber-50 font-bold"
         />
         <input
           type="number"
           placeholder="Number of questions"
           value={numQuestions}
           onChange={(e) => setNumQuestions(parseInt(e.target.value) || "")}
-          className="w-full p-3 rounded-lg shadow-md border outline-none focus:ring-2 focus:ring-blue-400"
+          className="w-full p-3 rounded-lg shadow-md border outline-none focus:ring-2 focus:ring-blue-400 bg-slate-600 text-amber-50 font-bold"
           min="1"
         />
         <select
           value={level}
           onChange={(e) => setLevel(e.target.value)}
-          className="w-full p-3 rounded-lg shadow-md border outline-none focus:ring-2 focus:ring-blue-400"
+          className="w-full p-3 rounded-lg shadow-md border outline-none focus:ring-2 focus:ring-blue-400 bg-slate-600 text-white font-bold"
         >
-          <option value="Default" disabled>Select Difficulty Level</option>
+          <option className=" font-bold" value="Default" disabled>Select Difficulty Level</option>
           <option value="Easy">Easy</option>
           <option value="Medium">Medium</option>
           <option value="Hard">Hard</option>
@@ -112,14 +112,14 @@ export default function QuestionGenerator() {
         {isLoading ? "Generating..." : "Generate Questions"}
       </button>
 
-      {errorMessage && <div className="text-center text-red-400 mt-4">{errorMessage}</div>}
+      {errorMessage && <div className="text-center text-white mt-4">{errorMessage}</div>}
 
       {questions.length > 0 && (
         <div className="mt-8 space-y-4">
           {questions.map((question) => (
             <div
               key={question.id}
-              className={`p-4 border rounded-lg cursor-pointer shadow-md ${selectedQuestions.includes(question.id) ? "bg-blue-100" : "bg-white"}`}
+              className={`p-4 border rounded-lg cursor-pointer shadow-md ${selectedQuestions.includes(question.id) ? "bg-slate-950" : "bg-slate-500"}`}
               onClick={() => toggleSelectQuestion(question.id)}
             >
               {question.text}
@@ -131,7 +131,7 @@ export default function QuestionGenerator() {
       {selectedQuestions.length > 0 && (
         <button
           onClick={showSelectedQuestions}
-          className="w-full mt-6 p-4 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-800 focus:outline-none"
+          className="w-full mt-6 p-4 bg-blue-800 text-white font-semibold rounded-lg shadow-md hover:bg-blue-800 focus:outline-none"
         >
           Show Selected Questions
         </button>
