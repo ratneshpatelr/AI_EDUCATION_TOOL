@@ -31,7 +31,6 @@ An advanced web application designed to assist users with AI-powered learning to
 ```bash
 # Clone the repository
 git clone # Clone the repository
-git clone https://github.com/ratneshpatelr/AI_EDUCATION_TOOL.git
 
 # Navigate to the project directory
 cd AI_EDUCATION_TOOL
