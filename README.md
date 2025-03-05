@@ -30,7 +30,17 @@ An advanced web application designed to assist users with AI-powered learning to
 ## Installation 🏗️
 ```bash
 # Clone the repository
-git clone https://github.com/ratneshpatelr/AI_EDUCATION_TOOL.git
+git clone # Clone the repository
+git clone https://github.com/ratneshpatelr/ai_education_tool.git
+
+# Navigate to the project directory
+cd AI_EDUCATION_TOOL
+
+# Install dependencies
+npm install
+
+# Run the project
+npm start
 
 # Navigate to the project directory
 cd AI_EDUCATION_TOOL
